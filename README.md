@@ -32,7 +32,6 @@ You can use any valid SQL query in the query field so feel free to get creative 
 ```
 SELECT m.member_id, DATE(FROM_UNIXTIME(m.join_date)) AS join_date, m.screen_name, DATE(FROM_UNIXTIME(m.last_visit)) AS last_visit
 FROM exp_members AS m
-JOIN exp_member_data d ON m.member_id=d.member_id
 ```
 
 If you need to do more than just export existing data you can apply post processing by specifiying valid PHP in the post_processing field. A simple example:
