@@ -93,9 +93,9 @@ class Reports_mcp {
         $cr   = "\n";
         $data = '';
 
-        echo('<pre>');
-        print_r($report);
-        exit;
+        //echo('<pre>');
+        //print_r($report);
+        //exit;
 
         foreach($report['data'] as $key => $value)
         {
