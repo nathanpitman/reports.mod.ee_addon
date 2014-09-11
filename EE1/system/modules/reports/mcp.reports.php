@@ -4,7 +4,7 @@ class Reports_CP {
 
     //module vars
 	private $module_name = 'Reports';
-	private $module_version = '1.0';
+	private $module_version = '1.1';
 	private $backend_bool = 'y';
 
 	var $base = "";
@@ -104,6 +104,9 @@ class Reports_CP {
 		// Run the query
 		$query = $DB->query($report['query']);
     	
+    	//print_r($query);
+		//exit;
+    	
     	if ($query->num_rows > 0) {
 	    	
 	    	// do any post processing which is required
@@ -112,8 +115,12 @@ class Reports_CP {
 				
 				$report['data'] = eval($report['post_processing']);
 				
+			} else {
+			
+				$report['data'] = $query->result;
+			
 			}
-    	
+			
     		$this->export($report);
     	
     	}
