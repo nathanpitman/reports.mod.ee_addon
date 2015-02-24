@@ -23,7 +23,7 @@ class Reports_mcp {
     function index()
     {
 
-		ee()->cp->set_breadcrumb(BASE.AMP.'C=addons_modules'.AMP.'M=show_module_cp'.AMP.'module=reports', lang('reports_module_name'));
+	ee()->cp->set_breadcrumb(BASE.AMP.'C=addons_modules'.AMP.'M=show_module_cp'.AMP.'module=reports', lang('reports_module_name'));
         ee()->view->cp_page_title = "All Reports";
 
         ee()->load->library('table');
@@ -102,7 +102,7 @@ class Reports_mcp {
             $data .= $key.$tab;
 		}
 
-		$data .= trim($data).$cr; // Remove end tab and add carriage
+		$data = trim($data).$cr; // Remove end tab and add carriage
 
 		foreach($report['data'] as $row)
 		{
