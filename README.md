@@ -22,7 +22,7 @@ For each report you want to provide access to you will need to add a row to the 
 * description - A short description for the report (i.e. Exports all data recorded for website members)
 * file_name - The filename you wish your CSV to have upon export (.csv is automatically appended for you)
 * query - Where the magic happens, just add your SQL query here (i.e. SELECT * FROM exp_members)
-* post_processing - If you're feeling clever you can add some post processing
+* post_processing - If you're feeling clever you can add some post processing, you can even use ee()->db etc.
 
 Queries & Post Processing
 -------------------------
