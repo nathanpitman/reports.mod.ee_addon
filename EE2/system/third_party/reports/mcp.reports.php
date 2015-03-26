@@ -4,7 +4,7 @@ class Reports_mcp {
 
     //module vars
 	private $module_name = 'Reports';
-	private $module_version = '1.0';
+	private $module_version = '1.0.1';
 	private $backend_bool = 'y';
 
 	var $base = "";
@@ -102,7 +102,7 @@ class Reports_mcp {
             $data .= $key.$tab;
 		}
 
-		$data .= trim($data).$cr; // Remove end tab and add carriage
+		$data = trim($data).$cr; // Remove end tab and add carriage
 
 		foreach($report['data'] as $row)
 		{

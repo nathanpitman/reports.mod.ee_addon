@@ -11,7 +11,7 @@
  */
 class Reports_upd {
 
-    var $version = '1.0.0';
+    var $version = '1.0.1';
     var $module_name = "Reports";
 
     /**
