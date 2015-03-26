@@ -24,7 +24,7 @@ class Reports_mcp {
     {
 
 		ee()->cp->set_breadcrumb(BASE.AMP.'C=addons_modules'.AMP.'M=show_module_cp'.AMP.'module=reports', lang('reports_module_name'));
-        ee()->view->cp_page_title = "All Reports";
+        ee()->view->cp_page_title = lang('page_title_all_reports');
 
         ee()->load->library('table');
 
@@ -54,11 +54,11 @@ class Reports_mcp {
 		$report = ee()->db->query("SELECT * FROM exp_reports WHERE report_id=".ee()->input->get('report_id')." LIMIT 1");
 		$report = $report->row_array();
 
-		//$report['title'];
-		//$report['description'];
-		//$report['query'];
-		//$report['post_processing'];
-		//$report['file_name'];
+		if (empty($report['query'])) {
+
+            show_error(lang('error_no_query'));
+
+        }
 
 		// Run the query
 		$query = ee()->db->query($report['query']);
@@ -69,7 +69,7 @@ class Reports_mcp {
 	    	if (!empty($report['post_processing'])) {
 				$report['data'] = eval($report['post_processing']);
                 if (!$report['data']) {
-                    show_error('There was an error with your post processing code.');
+                    show_error(lang('error_post_processing'));
                     exit;
                 }
 			} else {
@@ -80,7 +80,7 @@ class Reports_mcp {
 
     	} else {
 
-            show_error('Sorry - this report query does not return any results.');
+            show_error(lang('error_no_results'));
 
         }
 
@@ -94,7 +94,7 @@ class Reports_mcp {
 		$data = '';
 
 		if (!isset($report['data'][0]) OR !is_array($report['data'][0])) {
-            show_error('No table column headings found.');
+            show_error(lang('error_no_table_column_headings'));
         }
 
         foreach($report['data'][0] as $key => $value)
