@@ -1,13 +1,11 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
- * One calorie SEO module, no sugar added!
- *
  * @package     Reports
  * @subpackage  ThirdParty
  * @category    Modules
- * @author      Nine Four
- * @link        http://ninefour.co.uk/labs
+ * @author      Nathan Pitman
+ * @link        http://github.com/nathanpitman
  */
 class Reports_upd {
 
